@@ -67,7 +67,7 @@ public class TypewiseAlert
     }
     public static void sendToController(BreachType breachType) {
       int header = 0xfeed;
-      System.out.printf("%i : %i\n", header, breachType);
+      System.out.printf("%d : %s\n", header, breachType);
     }
     public static void sendToEmail(BreachType breachType) {
       String recepient = "a.b@c.com";
