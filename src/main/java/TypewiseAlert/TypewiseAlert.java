@@ -33,22 +33,21 @@ public class TypewiseAlert {
 	private static void getLimits(ArrayList<Integer> list, CoolingType coolingType) {
 		int lowerLimit = 0;
 		int upperLimit = 0;
-		switch (coolingType) {
-		case PASSIVE_COOLING:
-			lowerLimit = 0;
+		if (coolingType == CoolingType.PASSIVE_COOLING) {
 			upperLimit = 35;
-			break;
-		case HI_ACTIVE_COOLING:
-			lowerLimit = 0;
-			upperLimit = 45;
-			break;
-		case MED_ACTIVE_COOLING:
-			lowerLimit = 0;
-			upperLimit = 40;
-			break;
+		} else {
+			upperLimit = getUpperLimit(coolingType);
 		}
 		list.add(lowerLimit);
 		list.add(upperLimit);
+	}
+
+	private static int getUpperLimit(CoolingType coolingType) {
+		if(coolingType == CoolingType.HI_ACTIVE_COOLING) {
+			return 45;
+		} else {
+			return 40;
+		}
 	}
 
 	public enum AlertTarget {
